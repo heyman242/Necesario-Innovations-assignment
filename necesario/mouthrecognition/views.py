@@ -10,7 +10,7 @@ face_detector = dlib.get_frontal_face_detector()
 mouth_detector = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
 
 # Constants for mouth width calculation
-MOUTH_WIDTH_THRESHOLD = 40  # 4 cm
+MOUTH_WIDTH_THRESHOLD = 45  # 4 cm
 FILTER_EFFECT = (0, 0, 255)  # Red color
 
 
@@ -58,7 +58,7 @@ def stream_frames():
                b'Content-Type: image/jpeg\r\n\r\n' + jpeg.tobytes() + b'\r\n\r\n')
 
 
-# View function to render the video stream
+# render the video stream
 @gzip.gzip_page
 def live_stream(request):
     try:
@@ -67,6 +67,6 @@ def live_stream(request):
         pass
 
 
-# View function for the home page
+#the home page
 def home(request):
     return render(request, 'home.html')
